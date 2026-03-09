@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Issues Tracker</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+
+<nav class="bg-white shadow p-4 flex justify-between items-center">
+
+<div class="flex items-center gap-3">
+<img src="./assets/github-logo.png" alt="GitHub Logo" class="w-8">
+<h1 class="text-xl font-bold">GitHub Issues Tracker</h1>
+</div>
+<div class="flex gap-2">
+
+<input
+id="search"
+onkeyup="searchIssues()"
+class="border px-3 py-2 rounded"
+placeholder="Search issues..."
+>
+
+<button class="bg-purple-600 text-white px-4 py-2 rounded">
++ New Issue
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- Main Section -->
+
+<div class="max-w-7xl mx-auto mt-6">
+
+<!-- Tabs -->
+
+<div class="flex gap-3 mb-3">
+
+<button 
+id="allBtn"
+onclick="setActive('allBtn'); filterIssues('all')"
+class="tab-btn px-4 py-2 rounded-md bg-purple-600 text-white">
+All
+</button>
+
+<button 
+id="openBtn"
+onclick="setActive('openBtn'); filterIssues('open')"
+class="tab-btn px-4 py-2 rounded-md bg-gray-200 text-gray-700">
+Open
+</button>
+
+<button 
+id="closedBtn"
+onclick="setActive('closedBtn'); filterIssues('closed')"
+class="tab-btn px-4 py-2 rounded-md bg-gray-200 text-gray-700">
+Closed
+</button>
+
+</div>
+
+<!-- Issue Count Row -->
+
+<div class="flex justify-between items-center mb-5">
+
+<div class="flex items-center gap-2 text-gray-600">
+
+<span><img src="./assets/Aperture.png" alt="Aperture"></span>
+
+<p>
+    <span id="issueCount" class="font-bold text-lg"></span>
+
+    <span class="font-bold text-lg">Issues</span>
+    <span class="block ">Track and manage your project issues</span>
+</p>
+
+</div>
+
+<div class="flex gap-4 text-sm">
+
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 bg-green-500 rounded-full"></span>
+Open
+</span>
+
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+Closed
+</span>
+
+</div>
+
+</div>
+
+<!-- Issues Grid -->
+
+<div id="issuesContainer"
+class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4">
+</div>
+
+</div>
+
+
+<!-- Modal -->
+
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center">
+
+<div class="bg-white p-6 rounded-lg w-96">
+
+<h2 id="modalTitle" class="text-xl font-bold"></h2>
+
+<p id="modalDesc" class="text-gray-600 my-3"></p>
+
+<div id="modalInfo" class="text-sm"></div>
+
+<button onclick="closeModal()" class="bg-purple-600 text-white px-4 py-2 rounded mt-4">
+Close
+</button>
+
+</div>
+
+</div>
+
+
+<script src="issues.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
